@@ -22,8 +22,8 @@ let book = {
   }
 }
 
-//혹은
-
+// 혹은
+//                                (객체, 프로퍼티 여러개가 모인객체)
 let person = Object.defineProperties({}, {
   _name: {
     value: 'Tom',
