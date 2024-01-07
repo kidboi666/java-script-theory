@@ -24,4 +24,18 @@ Object.defineProperty(book, "year", {
 })
 
 // getter 함수만 지정시 프로퍼티는 읽기전용이 됨
-// setter만 지정시 undefined
+// setter만 지정하고 getter가 지정되지 않은 상태로 값을 불러오면 undefined
+
+let person = {
+  _name: 'tom',
+  get name() {
+    return this._name;
+  },
+  set name(value) {  // 네임을 정의하는 프로퍼티로
+    let str = value.charAt(0).toUpperCase() + value.substring(1) // 인수로 받은 문자열의 첫글자를 대문자로 하고 글자를 모두 출력하는 메서드를 작성
+    this._name = str; // _name에 할당
+  }
+}
+console.log(person.name); // Tom
+person.name = 'huck'
+console.log(person.name); // Huck
