@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    window.onload = function() {
+      var elm = document.getElementsByTagName('input');
+      for(var i = 0; i < elm.length; i++) {
+        elm[i].onclick = function() {
+          console.log(i)
+        }
+      }
+    };
+
+    // for문 안에 있는 중첩 함수는 외부의 반복문 i를 참조하는 클로저가 되므로 i의 최종값 3만 참조하게 된다.
+    // 이러한 증상을 해결키 위해선 즉시 실행 함수로 카운팅 변수를 만들어 해결하거나 (function(_i){}),(i)
+    // var가 아닌 let을 사용하면 된다. let은 블록 스코프 체인이라 반복이 끝나면 그 결과값을 
+    // 다시 i에 초기화하므로 문제가 발생하지 않게된다.
+  </script>
+</head>
+<body>
+  <input type="button" value="0">
+  <input type="button" value="1">
+  <input type="button" value="2">
+</body>
+</html>
